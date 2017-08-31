@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Github Demo Dashboard </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <h3>
+    <center>Github g-snoop Demo Dashboard <br>
+      <img src="/public/github_photo.png" alt="g-snoop" style="width:100px;height:100px;">
+    </center>
+  </h3>
+  <h5>
+    <center><a href="https://github.com/g-snoop?tab=repositories" target="_blank">[visit github account]</a>
+      <center>
+  </h5>
+  <div class="container">
+    <h4><center>Add/Remove</center></h4>
+    <!-- <p>The current list of repositories</p>-->
+     <div class="panel-body">
+      <form action="/api/snoop/mgt_account">
+      <div class="form-group">
+        <label for="repo_name">Repository Name:</label>
+        <input type="text" class="form-control" id="repo_name" placeholder="to add/delete" name="repo_name">
+      </div>
+      <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="radio_button" id="radio1" value="create" checked> create
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="radio_button" id="radio2" value="delete"> delete
+        </label>
+      </div>
+      <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+    </div>
+    <hr>
+  </div>
+  <div class="container">
+    <h4><center>Repositories<center></h4>
+    <!-- <p>The current list of repositories</p>-->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Language</th>
+          <th>Stars</th>
+          <th>Watchers</th>
+          <th>Size (kb)</th>
+        </tr>
+      </thead>
+      <tbody>

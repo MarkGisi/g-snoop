@@ -1,0 +1,9 @@
+{
+    "account":                  "g-snoop",
+    "github_url":               "https://github.com/g-snoop",
+    "token":                    "57651ab68ac4acd3fce820b6179dddcc19a6e74d",
+    "http_port":                80,
+    "debug_on":                 true,
+    "verbose_on":               true,
+    "config_reload_allowed":    true
+}
