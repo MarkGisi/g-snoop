@@ -42,15 +42,6 @@ import (
 
 var MAIN_config Configuration // Server configuration structure
 
-// Events is the struct which defines our events
-// **it is very important to have the fields capitalized**
-type Events struct {
-	Id     int    `json:"id"`
-	Title  string `json:"title"`
-	Detail string `json:"detail"`
-	Date   string `json:"date"`
-}
-
 const (
 	config_file = "./g-snoop_config.json"
 )
