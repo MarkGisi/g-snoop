@@ -1,6 +1,6 @@
 package main
 
-// Licensing: Apache-2.0
+// Licensing: Apache-2.0 and BSD-3-Clause
 /*
  *  Copyright (c) 2017 Wind River Systems, Inc.
  *
@@ -49,13 +49,6 @@ type Events struct {
 	Title  string `json:"title"`
 	Detail string `json:"detail"`
 	Date   string `json:"date"`
-}
-
-// this is the JSON we will send to the front end
-// this can be added to a database too.
-var events = []Events{{Id: 1, Title: "Do a Skype", Detail: "Skype with guys from NASA", Date: "2015-12-12"},
-	{Id: 2, Title: "Martian releases", Detail: "Relocate to Mars", Date: "2016-1-1"},
-	{Id: 3, Title: "What is Vue?"},
 }
 
 const (
@@ -174,9 +167,11 @@ func CreateHomePage() string {
 			WatchersCount: *repos[i].WatchersCount}
 
 		// add another row in the repo table listing
-		new_html += fmt.Sprintf("<tr> \n  <td> %s </td>  \n  <td> %s </td>  \n  <td> %d </td> \n  <td> %d </td>  \n  <td> %d </td> \n </tr> \n",
-			record.Name, record.Language, record.StarsCount, record.WatchersCount, record.Size)
+		new_html += fmt.Sprintf("<tr> \n  <td> %s </td>  \n  <td> %s </td>  \n  <td> %d </td> \n  <td> %d </td> \n  <td> %s </td>\n </tr> \n",
+			record.Name, record.Language, record.StarsCount,  record.Size, record.Description)
+		fmt.Println (i)
 	}
+	fmt.Println (new_html)
 	// Splice together the three templates to dynamically create a new homepage
 	return fmt.Sprintf("%s %s %s", index_html_1of3.String(), new_html, index_html_3of3.String())
 }
@@ -186,7 +181,6 @@ func displayURLRequest(request *http.Request) {
 	fmt.Println()
 	fmt.Println("-----------------------------------------------")
 	fmt.Println("URL Request: ", request.URL.Path)
-	//fmt.Println ("------------------------------------:")
 	log.Println()
 	fmt.Println("query params were:", request.URL.Query())
 }
@@ -226,13 +220,6 @@ func MgtAccoutnHandler(w http.ResponseWriter, r *http.Request) {
 	// regenerate the home page in both cases of success or error
 	w.Header().Set("Content-Type", "text/html")
 	io.WriteString(w, CreateHomePage())
-}
-
-// GET /api/events/
-func EventsHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	fmt.Println("in EventHandler")
-	json.NewEncoder(w).Encode(events)
 }
 
 // HomeHandler will be rendering of the home page

@@ -1,9 +1,13 @@
 # g-snoop
-This project provides a demo of a very simple github dashboard. It consists of a web server written in Go that accesses github's RESTFul API which is document here:
+This project provides a demo of a very simple github dashboard. It consists of a web server written in Go that accesses Github's RESTFul API which is documented here:
 
 ​	https://developer.github.com/v3/
 
-This was prepared as a simple proof of concept. It simply allows one to add and create repositories and to display the current list of repository for a pseudo account: https://github.com/g-snoop. I suspect many companies are trying to automate access to github and hopeful overtime we can develop this project to either serve as a great reference or possibly evolve into a usably production strength free platform.   
+This project was prepared as a simple proof of concept. The goal is to demonstrate the feasibility to automate access to Github repositories. It currently allows one to perform simple web based operations to create and delete repositories and to display the current list of repositories for a demo account: 
+
+​	https://github.com/g-snoop
+
+Many companies are considering or implementing automate access to github. Hopeful, overtime, we can develop this project to either serve as a useful reference on how to automate access to Github or even potentially evolve into a usably production strength free platform.   
 
 ### Live Demo
 
